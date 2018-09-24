@@ -52,7 +52,8 @@ Route::get('user/{id}/post', function ($id) {
 
 Route::get('user/{id}/updatepost', function ($id) {
     $user = \App\User::findOrFail($id);
-    return $user->posts()->where('id', 2)->update(['title'=>'Javascript Update']);
+//    return $user->posts()->where('id', 2)->update(['title'=>'Javascript Update']);
+    return $user->posts()->whereId(2)->update(['title'=>'Javascript Update']);
 
 });
 
