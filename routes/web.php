@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/createUser', function () {
-   $user = \App\User::create(['name'=>'Khanh', 'email'=>'maikhanh@gmail.com', 'password'=>bcrypt('123')]);
+   $user = \App\User::create(['name'=>'Tuan', 'email'=>'vantuan@gmail.com', 'password'=>bcrypt('123')]);
 
    return $user;
 });
@@ -55,6 +55,11 @@ Route::get('user/{id}/updatepost', function ($id) {
 //    return $user->posts()->where('id', 2)->update(['title'=>'Javascript Update']);
     return $user->posts()->whereId(2)->update(['title'=>'Javascript Update']);
 
+});
+
+Route::get('user/{id}/delete', function ($id) {
+    $user = \App\User::findOrFail($id);
+    return $user->posts()->delete();
 });
 
 
